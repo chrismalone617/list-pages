@@ -148,7 +148,107 @@ export const onRequestGet = async ({ request, env }) => {
     body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:#111;line-height:1.5}
     .container{max-width:1280px;margin:0 auto;padding:1rem}
     
-    /* Header Back Button */
+    /* Header Styles */
+    .mrf-header{
+      background: #ffffff;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      position: relative;
+      z-index: 10;
+    }
+    .mrf-header-content{
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .mrf-header-left{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1;
+      min-width: 0;
+    }
+    .mrf-logo-link{
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 0.75rem;
+    }
+    .mrf-logo-img{
+      height: 3rem;
+      width: auto;
+      border-radius: 0.5rem;
+      flex-shrink: 0;
+    }
+    .mrf-header-text{
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .mrf-header-title{
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #111827;
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.2;
+    }
+    .mrf-header-tagline{
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin: 0;
+      font-style: italic;
+    }
+    .mrf-header-right{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+    .mrf-anniversary-badge{
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      border: 3px solid #000000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+    .mrf-anniversary-text{
+      font-size: 0.625rem;
+      font-weight: 700;
+      color: #000000;
+      line-height: 1.1;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .mrf-anniversary-years{
+      font-size: 1rem;
+      font-weight: 900;
+      color: #000000;
+      line-height: 1;
+      margin: 0.125rem 0 0 0;
+    }
+    .mrf-anniversary-forum{
+      font-size: 0.5rem;
+      font-weight: 700;
+      color: #000000;
+      line-height: 1;
+      margin: 0.125rem 0 0 0;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
     .header-back-btn{
       display: inline-flex;
       align-items: center;
@@ -176,6 +276,35 @@ export const onRequestGet = async ({ request, env }) => {
     }
     .header-back-btn svg{
       flex-shrink: 0;
+    }
+    @media (max-width: 767px){
+      .mrf-header-content{
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .mrf-header-left{
+        width: 100%;
+      }
+      .mrf-header-right{
+        width: 100%;
+        justify-content: space-between;
+      }
+      .mrf-header-title{
+        font-size: 1.5rem;
+      }
+      .mrf-anniversary-badge{
+        width: 70px;
+        height: 70px;
+      }
+      .mrf-anniversary-years{
+        font-size: 0.875rem;
+      }
+      .mrf-anniversary-text{
+        font-size: 0.5625rem;
+      }
+      .mrf-anniversary-forum{
+        font-size: 0.4375rem;
+      }
     }
 
     /* Top Navbar (non-sticky) - Black background like footer */
@@ -373,16 +502,27 @@ export const onRequestGet = async ({ request, env }) => {
 <body class="bg-white">
 
   <!-- ===== MRF HEADER ===== -->
-  <header class="z-10 bg-white shadow-xl">
-    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 py-3 border-b border-gray-200">
-      <div class="flex items-center justify-center md:justify-between">
-        <a href="https://www.mineralrightsforum.com" class="block w-fit">
+  <header class="mrf-header">
+    <div class="mrf-header-content">
+      <div class="mrf-header-left">
+        <a href="https://www.mineralrightsforum.com" class="mrf-logo-link">
           <img src="https://www.mineralrightsforum.com/uploads/db5755/original/3X/7/7/7710a47c9cd8492b1935dd3b8d80584938456dd4.jpeg"
                alt="Mineral Rights Forum Logo"
-               class="h-12 w-auto rounded-lg"
+               class="mrf-logo-img"
                onerror="this.onerror=null;this.src='https://placehold.co/150x40/d1d5db/4b5563?text=MRF+Logo'">
+          <div class="mrf-header-text">
+            <h1 class="mrf-header-title">The Mineral Rights Forum</h1>
+            <p class="mrf-header-tagline">Conversation for America's Mineral Owners</p>
+          </div>
         </a>
-        <button class="header-back-btn" style="display: none;" id="returnBtn" data-return-url="${return_url ? escapeAttr(return_url) : 'https://www.mineralrightsforum.com'}">
+      </div>
+      <div class="mrf-header-right">
+        <div class="mrf-anniversary-badge">
+          <p class="mrf-anniversary-text">Celebrating</p>
+          <p class="mrf-anniversary-years">15 Years</p>
+          <p class="mrf-anniversary-forum">The Mineral Rights Forum</p>
+        </div>
+        <button class="header-back-btn" id="returnBtn" data-return-url="${return_url ? escapeAttr(return_url) : 'https://www.mineralrightsforum.com'}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
@@ -450,21 +590,8 @@ export const onRequestGet = async ({ request, env }) => {
 
   <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Show/hide return button based on screen size
-    const returnBtn = document.getElementById('returnBtn');
-    function toggleReturnButton() {
-      if (returnBtn) {
-        if (window.matchMedia('(min-width: 768px)').matches) {
-          returnBtn.style.display = 'inline-flex';
-        } else {
-          returnBtn.style.display = 'none';
-        }
-      }
-    }
-    toggleReturnButton();
-    window.addEventListener('resize', toggleReturnButton);
-    
     // Handle return button click - navigate to return_url from site config
+    const returnBtn = document.getElementById('returnBtn');
     if (returnBtn) {
       const returnUrl = returnBtn.getAttribute('data-return-url') || 'https://www.mineralrightsforum.com';
       returnBtn.addEventListener('click', () => {
