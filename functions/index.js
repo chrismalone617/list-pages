@@ -535,7 +535,7 @@ export const onRequestGet = async ({ request, env }) => {
     <h1 style="font-size: 2rem; font-weight: 700; margin: 2rem 0 1.5rem 0; color: var(--mrf-primary); text-align: center;">
       ${escapeHtml(page_title || 'Testimonials')}
     </h1>
-    <p class="testimonials-intro">Following are unprompted comments and statements sourced directly from posts.</p>
+    <p class="testimonials-intro">At Mineral Rights Forum, thousands of mineral owners share their stories on oil and gas rights, leasing tips, and royalty management. Read these authentic testimonials to see how our community has helped members navigate the industry.</p>
     ${testimonialsList}
   </main>
 
