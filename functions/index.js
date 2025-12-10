@@ -96,7 +96,7 @@ export const onRequestGet = async ({ request, env }) => {
         return `
           <div class="testimonial-item" data-testimonial="${idx}">
             <p class="testimonial-text">"${escapeHtml(text)}"</p>
-            <p class="testimonial-author">${escapeHtml(name)}</p>
+            <p class="testimonial-author">- ${escapeHtml(name)}</p>
           </div>
         `;
       }).join('')
