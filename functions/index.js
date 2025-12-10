@@ -110,6 +110,8 @@ export const onRequestGet = async ({ request, env }) => {
   <link rel="stylesheet" href="/styles.css?v=202511080417p">
   <meta charset="utf-8">
   <title>${escapeHtml(seo?.title || 'Testimonials')}</title>
+  <meta name="description" content="${escapeHtml(seo?.description || '')}">
+  <link rel="canonical" href="${pageUrl}">
   <meta property="og:title" content="${escapeHtml(seo?.title || 'Testimonials')}">
   <meta property="og:description" content="${escapeHtml(seo?.description || '')}">
   <meta property="og:type" content="website">
@@ -117,7 +119,6 @@ export const onRequestGet = async ({ request, env }) => {
   <meta property="og:image" content="https://www.mineralrightsforum.com/uploads/db5755/original/3X/7/7/7710a47c9cd8492b1935dd3b8d80584938456dd4.jpeg">
   <meta property="og:site_name" content="Mineral Rights Forum">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="description" content="${escapeHtml(seo?.description || '')}">
   <meta name="robots" content="index, follow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
