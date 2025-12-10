@@ -202,15 +202,16 @@ export const onRequestGet = async ({ request, env }) => {
     .header-back-btn svg{
       flex-shrink: 0;
     }
-    @media (max-width: 767px){
-      .mrf-header-content{
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .mrf-header-content .header-back-btn{
-        align-self: flex-end;
-      }
-    }
+     @media (max-width: 767px){
+       .mrf-header-content{
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+       }
+       .mrf-header-content .header-back-btn{
+         display: none;
+       }
+     }
 
     /* Top Navbar (non-sticky) - Black background like footer */
     .top-navbar{
@@ -230,7 +231,7 @@ export const onRequestGet = async ({ request, env }) => {
     .top-navbar a{
       color: #ffffff;
       text-decoration: none;
-      font-size: 0.9375rem;
+      font-size: 1.1rem;
       font-weight: 500;
       padding: 0.5rem 0.75rem;
       border-radius: 0.375rem;
@@ -380,18 +381,26 @@ export const onRequestGet = async ({ request, env }) => {
         flex-direction: column;
         gap: 1.5rem;
         padding: 0 1.5rem;
+        align-items: center;
+        text-align: center;
       }
       .footer-left{
-        text-align: left;
+        text-align: center;
       }
       .footer-right{
-        align-items: flex-start;
-        text-align: left;
+        align-items: center;
+        text-align: center;
       }
       .footer-menu{
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 1rem;
-        justify-content: flex-start;
+        justify-content: center;
+        max-width: 400px;
+      }
+      .footer-menu li{
+        flex: 0 0 calc(50% - 0.5rem);
+        text-align: center;
       }
       .top-navbar .container{
         flex-direction: row;
@@ -437,8 +446,6 @@ export const onRequestGet = async ({ request, env }) => {
     <div class="container">
       <a href="https://www.mineralrightsforum.com">Home</a>
       <a href="https://www.mineralrightsforum.com/latest">Latest Posts</a>
-      <a href="https://www.mineralrightsforum.com/categories">Categories</a>
-      <a href="https://www.mineralrightsforum.com/t/advertise-with-us-to-reach-mineral-owners/24986">Advertise with Us</a>
     </div>
   </nav>
 
@@ -447,7 +454,7 @@ export const onRequestGet = async ({ request, env }) => {
     <h1 style="font-size: 2rem; font-weight: 700; margin: 2rem 0 1.5rem 0; color: var(--mrf-primary); text-align: center;">
       ${escapeHtml(page_title || 'Testimonials')}
     </h1>
-    <p class="testimonials-intro">Following are unprompted comments and statements sourced directly from posts here on The Mineral Rights Forum.</p>
+    <p class="testimonials-intro">Following are unprompted comments and statements sourced directly from posts.</p>
     ${testimonialsList}
   </main>
 
