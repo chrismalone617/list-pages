@@ -95,7 +95,7 @@ export const onRequestGet = async ({ request, env }) => {
         
         return `
           <div class="testimonial-item" data-testimonial="${idx}">
-            <p class="testimonial-text">${escapeHtml(text)}</p>
+            <p class="testimonial-text">"${escapeHtml(text)}"</p>
             <p class="testimonial-author">${escapeHtml(name)}</p>
           </div>
         `;
@@ -275,9 +275,9 @@ export const onRequestGet = async ({ request, env }) => {
     }
     .testimonial-text{
       font-size: 1.125rem;
-      line-height: 1.7;
+      line-height: 1.5;
       color: #374151;
-      margin: 0 0 0.5rem 0;
+      margin: 0 0 0.25rem 0;
       font-style: italic;
     }
     .testimonial-author{
