@@ -42,10 +42,14 @@ export const onRequestGet = async ({ request, env }) => {
 
   const { seo, page_title, return_url } = site;
 
+  // Extract SEO values from site config
+  const pageTitle = seo?.title || 'Testimonials';
+  const pageDescription = seo?.description || '';
+
   // Build JSON-LD schema
   const pageUrl = `https://${host}/`;
-  const pageName = seo?.title || 'Testimonials';
-  const pageDesc = seo?.description || '';
+  const pageName = pageTitle;
+  const pageDesc = pageDescription;
 
   const itemListElements = visibleTestimonials
     .map((testimonial, idx) => {
@@ -109,11 +113,11 @@ export const onRequestGet = async ({ request, env }) => {
   <link rel="icon" type="image/png" href="https://www.mineralrightsforum.com/uploads/db5755/optimized/2X/5/53c419e5d847ede71cf80a938cf0156350637c44_2_32x32.png">
   <link rel="stylesheet" href="/styles.css?v=202511080417p">
   <meta charset="utf-8">
-  <title>${escapeHtml(seo?.title || 'Testimonials')}</title>
-  <meta name="description" content="${escapeHtml(seo?.description || '')}">
+  <title>${escapeHtml(pageTitle)}</title>
+  <meta name="description" content="${escapeHtml(pageDescription)}">
   <link rel="canonical" href="${pageUrl}">
-  <meta property="og:title" content="${escapeHtml(seo?.title || 'Testimonials')}">
-  <meta property="og:description" content="${escapeHtml(seo?.description || '')}">
+  <meta property="og:title" content="${escapeHtml(pageTitle)}">
+  <meta property="og:description" content="${escapeHtml(pageDescription)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${pageUrl}">
   <meta property="og:image" content="https://www.mineralrightsforum.com/uploads/db5755/original/3X/7/7/7710a47c9cd8492b1935dd3b8d80584938456dd4.jpeg">
