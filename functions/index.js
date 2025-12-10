@@ -62,13 +62,18 @@ export const onRequestGet = async ({ request, env }) => {
         position: idx + 1,
         item: {
           '@type': 'Review',
-          '@id': `#testimonial-${idx}`,
+          '@id': `${pageUrl}#testimonial-${idx}`,
           reviewBody: text,
           author: {
             '@type': 'Person',
             name: name
           },
-          datePublished: testimonial.date || testimonial.Date || ''
+          datePublished: testimonial.date || testimonial.Date || '',
+          itemReviewed: {
+            '@type': 'Organization',
+            name: 'Mineral Rights Forum',
+            url: 'https://www.mineralrightsforum.com'
+          }
         }
       };
     })
